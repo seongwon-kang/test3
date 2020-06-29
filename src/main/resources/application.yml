@@ -3,3 +3,34 @@
 # ==================================================================================================
 server:
   port: 8000
+# ==================================================================================================
+# Spring Settings
+# ==================================================================================================/
+spring:
+  mvc:
+    view:
+      prefix: "/WEB-INF/jsp/"
+      suffix: ".jsp"
+  #DB
+  datasource:
+    ##url: jdbc:log4jdbc:mysql://aviat-nas.synology.me:3307/demo_spring_project?serverTimezone=UTC&characterEncoding=UTF-8
+    ##driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:mysql://aviat-nas.synology.me:3307/study_001?serverTimezone=UTC&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: study001
+    password: study1q2w#E$R
+  #Mail(메일서버 추후 적용)
+  #mail:
+  #  host: aviat-nas.synology.me
+  #  port: 25
+  #  username: -
+  #  password: -
+  #  properties:
+  #    mail:
+  #      smtp:
+  #        port: 465
+  #        ssl:
+  #          trust: aviat-nas.synology.me
+  #        auth: true
+  #        starttls:
+  #          enable: true
