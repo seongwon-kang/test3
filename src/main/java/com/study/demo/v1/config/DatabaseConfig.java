@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages="com.mirae.service")
+@MapperScan(basePackages="com.study.demo")
 @EnableTransactionManagement
 public class DatabaseConfig {
 
