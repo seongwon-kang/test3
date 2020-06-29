@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- front -->
+    <definition name="front-layout" template="/WEB-INF/jsp/layout/front-layout.jsp">
+        <put-attribute name="header" value="/WEB-INF/jsp/layout/header.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="aside" value="/WEB-INF/jsp/layout/aside.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/jsp/layout/footer.jsp"/>
+    </definition>
+
+    <definition name="fLayout:/*" extends="front-layout">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp"/>
+    </definition>
+    <definition name="fLayout:/*/*" extends="front-layout">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}.jsp"/>
+    </definition>
+   <!-- <definition name="fLayout:/*/*/*" extends="front-layout">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp"/>
+    </definition>
+    <definition name="fLayout:/*/*/*/*" extends="front-layout">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}.jsp"/>
+    </definition>
+    <definition name="fLayout:/*/*/*/*/*" extends="front-layout">
+        <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}/{5}.jsp"/>
+    </definition>-->
+    <!--
+        &lt;!&ndash;로그인 폼&ndash;&gt;
+        <definition name="front-LoginLayout" template="/WEB-INF/jsp/cmmn/layout/front/user/signin/front-LoginLayout.jsp">
+            <put-attribute name="header" value="/WEB-INF/jsp/cmmn/layout/front/user/signin/header.jsp"/>
+            <put-attribute name="body" value=""/>
+            <put-attribute name="js" value="/WEB-INF/jsp/cmmn/js/common.jsp"/>
+        </definition>
+        <definition name="fLoginLayout:/*/*/*/*" extends="front-LoginLayout">
+            <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}/.jsp"/>
+        </definition>
+
+        &lt;!&ndash; mange &ndash;&gt;
+        <definition name="manage-layout" template="/WEB-INF/jsp/cmmn/layout/manage/manage-layout.jsp">
+            <put-attribute name="header" value="/WEB-INF/jsp/cmmn/layout/manage/header.jsp"/>
+            <put-attribute name="body" value=""/>
+            <put-attribute name="js" value="/WEB-INF/jsp/cmmn/js/common.jsp"/>
+        </definition>
+        <definition name="mLayout:/*" extends="manage-layout">
+            <put-attribute name="body" value="/WEB-INF/jsp/{1}.jsp"/>
+        </definition>
+        <definition name="mLayout:/*/*" extends="manage-layout">
+            <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}.jsp"/>
+        </definition>
+        <definition name="mLayout:/*/*/*" extends="manage-layout">
+            <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp"/>
+        </definition>
+        <definition name="mLayout:/*/*/*/*" extends="manage-layout">
+            <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}.jsp"/>
+        </definition>
+        <definition name="mLayout:/*/*/*/*/*" extends="manage-layout">
+            <put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}/{4}/{5}.jsp"/>
+        </definition>-->
+</tiles-definitions>
