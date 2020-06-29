@@ -9,8 +9,8 @@ server:
 spring:
   mvc:
     view:
-      prefix: "/WEB-INF/jsp/"
-      suffix: ".jsp"
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
   #DB
   datasource:
     ##url: jdbc:log4jdbc:mysql://aviat-nas.synology.me:3307/demo_spring_project?serverTimezone=UTC&characterEncoding=UTF-8
