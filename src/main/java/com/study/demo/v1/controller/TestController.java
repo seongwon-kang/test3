@@ -22,6 +22,14 @@ public class TestController {
 
     private final TestService testService;
 
+    @GetMapping("/test/list")
+    public String list(Model model){
+        List<TestVO> list = testService.read();
+        model.addAttribute("list", list);
+
+        return "fLayout:/test/list";
+    }
+
     @GetMapping("/test")
     public String createForm(Model model){
         List<TestVO> list = testService.read();
