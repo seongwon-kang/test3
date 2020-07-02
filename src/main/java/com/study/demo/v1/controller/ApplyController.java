@@ -30,9 +30,9 @@ public class ApplyController {
         return "fLayout:/apply/applyCreateForm";
     }
 
+    //문의 예약신청
     @PostMapping("/v1/apply/create")
     public void applyCreateProc( CreateFormVO form){
         applyService.create(form);
-
     }
 }

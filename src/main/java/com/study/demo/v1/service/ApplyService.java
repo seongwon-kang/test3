@@ -25,7 +25,7 @@ public class ApplyService {
         ApplyVO applyVO = setApplyVO(form);
 
         /** 2. APPLY_DETAIL 저장**/
-        ApplyDetailVO applyDetailVO = setApplyDetailVO(form, applyVO);
+        ApplyDetailVO applyDetailVO = setApplyDetailVO(form, applyVO.getApplyId());
 
         /** 3. APPLY_DETAIL_LOCATION 저장**/
         setApplyDetailLocation(form, applyDetailVO.getApplyDetId());
@@ -37,11 +37,13 @@ public class ApplyService {
         setApplyDetailRoom(form, applyDetailVO.getApplyDetId());
     }
 
+
+    /** === 생성 매서드 === **/
     private void setApplyDetailRoom(CreateFormVO form, Long applyDetId) {
         List<ApplyDetailRoomVO> roomList = new ArrayList<>();
         for (int i = 0; i < form.getRoomType().size(); i++) {
             ApplyDetailRoomVO applyDetailRoomVO = new ApplyDetailRoomVO();
-            applyDetailRoomVO.setApplyDetId(applyDetId);
+            applyDetailRoomVO.setApplyDetId(applyDetId);//applyDetId 외래키 주입
             applyDetailRoomVO.setRoomStock(form.getRoomStock().get(i));
             applyDetailRoomVO.setRoomType(form.getRoomType().get(i));
             roomList.add(applyDetailRoomVO);
@@ -51,14 +53,12 @@ public class ApplyService {
         }
     }
 
-
-    /** === 생성 매서드 === **/
     private void setApplyDetailMeal(CreateFormVO form, Long applyDetId) {
         List<ApplyDetailMealVO> mealList = new ArrayList<>();
 
         for (int i = 0; i < form.getMealTime().size(); i++) {
             ApplyDetailMealVO applyDetailMealVO = new ApplyDetailMealVO();
-            applyDetailMealVO.setApplyDetId(applyDetId);
+            applyDetailMealVO.setApplyDetId(applyDetId);//applyDetId 외래키 주입
             applyDetailMealVO.setMealTime(form.getMealTime().get(i));
             applyDetailMealVO.setMealType(form.getMealType().get(i));
             mealList.add(applyDetailMealVO);
@@ -73,7 +73,7 @@ public class ApplyService {
 
         for (int i = 0; i < form.getLocation().size(); i++) {
             ApplyDetailLocationVO applyDetailLocationVO = new ApplyDetailLocationVO();
-            applyDetailLocationVO.setApplyDetId(applyDetId);
+            applyDetailLocationVO.setApplyDetId(applyDetId);//applyDetId 외래키 주입
             applyDetailLocationVO.setLocation(form.getLocation().get(i));
             applyDetailLocationVO.setLocationTime(form.getLocationTime().get(i));
             locationList.add(applyDetailLocationVO);
@@ -84,9 +84,9 @@ public class ApplyService {
         }
     }
 
-    private ApplyDetailVO setApplyDetailVO(CreateFormVO form, ApplyVO applyVO) {
+    private ApplyDetailVO setApplyDetailVO(CreateFormVO form, Long applyId) {
         ApplyDetailVO applyDetailVO = new ApplyDetailVO();
-        applyDetailVO.setApplyId(applyVO.getApplyId());
+        applyDetailVO.setApplyId(applyId); //applyId 외래키 주입
         applyDetailVO.setName(form.getName());
         applyDetailVO.setEmail(form.getEmail());
         applyDetailVO.setPhone(form.getPhone());
