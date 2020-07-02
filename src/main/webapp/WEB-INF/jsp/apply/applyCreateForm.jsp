@@ -180,7 +180,7 @@
                         <option value="SUITES">SUITES</option>
                     </select>
                     <label for="roomStockQuantity1">수량</label>
-                    <input type="text" id="roomStockQuantity1" name="roomStockQuantity">
+                    <input type="text" id="roomStockQuantity1" name="roomStock">
                 </li>
                 <li>
                     <label for="roomType2">객실선택</label>
@@ -190,7 +190,7 @@
                         <option value="SUITES">SUITES</option>
                     </select>
                     <label for="roomStockQuantity2">수량</label>
-                    <input type="text" id="roomStockQuantity2" name="roomStockQuantity"/>
+                    <input type="text" id="roomStockQuantity2" name="roomStock"/>
                 </li>
                 <li>
                     <label for="name">예약자명</label>

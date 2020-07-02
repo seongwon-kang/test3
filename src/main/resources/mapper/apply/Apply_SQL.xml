@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.study.demo.v1.mapper.ApplyMapper">
+
+
+    <insert id="insertApply"
+            useGeneratedKeys="true"
+            keyProperty="applyId">
+
+            INSERT INTO APPLY(
+                        apply_type,
+                        title,
+                        start_date,
+                        end_date,
+                        apply_num,
+                        purpose,
+                        create_date,
+                        modified_date
+                    ) VALUES(
+                        #{applyType},
+                        #{title},
+                        #{startDate},
+                        #{endDate},
+                        #{applyNum},
+                        #{purpose},
+                        now(),
+                        now()
+                    )
+    </insert>
+
+    <insert id="insertApplyDetail"
+            useGeneratedKeys="true"
+            keyProperty="applyDetId">
+            INSERT INTO APPLY_DETAIL( apply_id,
+                                     name,
+                                     email,
+                                     phone,
+                                     feedback_type,
+                                     comment,
+                                     form_agree)
+                         VALUES(#{applyId},
+                                #{name},
+                                #{email},
+                                #{phone},
+                                #{feedbackType},
+                                #{comment},
+                                #{formAgree})
+    </insert>
+
+    <insert id="insertApplyDetailLocation">
+            INSERT INTO APPLY_DETAIL_LOCATION(  apply_det_id,
+                                                location,
+                                                location_time)
+                         VALUES(#{applyDetId},
+                                #{location},
+                                #{locationTime})
+    </insert>
+
+    <insert id="insertApplyDetailMeal">
+            INSERT INTO APPLY_DETAIL_MEAL(  apply_det_id,
+                                            meal_time,
+                                            meal_type)
+                         VALUES(#{applyDetId},
+                                #{mealTime},
+                                #{mealType})
+    </insert>
+
+    <insert id="insertApplyDetailRoom">
+            INSERT INTO APPLY_DETAIL_ROOM(  apply_det_id,
+                                            room_type,
+                                            room_stock)
+                         VALUES(#{applyDetId},
+                                #{roomType},
+                                #{roomStock})
+    </insert>
+
+</mapper>

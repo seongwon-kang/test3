@@ -1,6 +1,7 @@
 package com.study.demo.v1.vo.apply;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,7 +10,9 @@ import java.util.List;
 public class CreateFormVO {
     private String applyType;
     private String title;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime endDate;
     private String applyNum;
     private String purpose;

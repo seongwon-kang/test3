@@ -7,5 +7,5 @@ public class ApplyDetailLocationVO {
     private Long applyDetLocationId;
     private Long applyDetId;
     private String location;
-    private String location_time;
+    private String locationTime;
 }

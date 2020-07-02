@@ -192,7 +192,7 @@
                 </li>
                 <li>
                     <label for="formAgree">개인정보 이용동의</label>
-                    <input type="text" id="formAgree" name="formAgree">
+                    <input type="checkbox" id="formAgree" name="formAgree" value="Y">
                 </li>
                 <li>
                     <button id="btnSubmit" type="button">테스트등록</button>
