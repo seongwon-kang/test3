@@ -1,11 +1,13 @@
 package com.study.demo.v1.controller;
 
 import com.study.demo.v1.service.ApplyService;
+import com.study.demo.v1.vo.apply.CreateFormVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,5 +28,11 @@ public class ApplyController {
     public String applyCreateForm(){
 
         return "fLayout:/apply/applyCreateForm";
+    }
+
+    @PostMapping("/v1/apply/create")
+    public void applyCreateProc( CreateFormVO form){
+        applyService.create(form);
+
     }
 }
