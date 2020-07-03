@@ -18,6 +18,7 @@ public class ApplyService {
 
     private final ApplyMapper applyMapper;
 
+    //목록
     public ApplyDomain read() {
         ApplyDomain condition = new ApplyDomain();
 
@@ -26,6 +27,7 @@ public class ApplyService {
         return condition;
     }
 
+    //상세
     public ApplyDomain read(Long applyId) {
         ApplyDomain condition = new ApplyDomain();
 

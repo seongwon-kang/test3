@@ -38,7 +38,6 @@
                         <option value="ETC" <c:if test="${view.detail.purpose eq 'ETC'}"> selected="selected"</c:if>>기타</option>
                     </select>
                 </li>
-                ${view.detail.location}
                 <c:forEach var="loc" items="${view.detail.location}">
                 <li>
                     <label>희망행사장소</label>
@@ -59,7 +58,6 @@
                 </c:forEach>
 
                 <!--ADD 버튼으로 늘어난다고 가정함-->
-                ${view.detail.meal}
                 <c:forEach var="meal" items="${view.detail.meal}">
                 <li>
                     <label for="mealTime1">식사선택</label>
