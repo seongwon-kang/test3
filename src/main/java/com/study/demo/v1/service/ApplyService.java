@@ -1,7 +1,7 @@
 package com.study.demo.v1.service;
 
 import com.study.demo.v1.domain.ApplyDomain;
-import com.study.demo.v1.dto.apply.ApplyListDto;
+import com.study.demo.v1.dto.apply.ApplyViewDto;
 import com.study.demo.v1.mapper.ApplyMapper;
 import com.study.demo.v1.vo.apply.*;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,21 @@ public class ApplyService {
     public ApplyDomain read() {
         ApplyDomain condition = new ApplyDomain();
 
-        condition.setApplyList(applyMapper.selectApplyList());//// TODO: 2020-07-03 시작일,끝일, 검색어,페이지 번호(1~10)를 담는 객체 보내야함
+        condition.setApplyList(applyMapper.selectApplyList());//// TODO: 2020-07-03 추후 [시작일],[끝일], [검색어],[페이지 번호(1~10)]를 담는 객체 보내야함
+
+        return condition;
+    }
+
+    public ApplyDomain read(Long applyId) {
+        ApplyDomain condition = new ApplyDomain();
+
+        ApplyViewDto applyViewVO = applyMapper.selectApply(applyId);/** 1. APPLY && APPLY_DETAIL**/
+        Long applyDetId = applyViewVO.getApplyDetId(); //외래키 추출.
+        applyViewVO.setLocation(applyMapper.selectApplyDetLocation(applyDetId));/** 2. LOCATION **/
+        applyViewVO.setMeal(applyMapper.selectApplyDetMeal(applyDetId));/** 3. MEAL **/
+        applyViewVO.setRoom(applyMapper.selectApplyDetRoom(applyDetId));/** 4. ROOM **/
+
+        condition.setDetail(applyViewVO);
 
         return condition;
     }
@@ -118,5 +132,6 @@ public class ApplyService {
         applyMapper.insertApply(applyVO);
         return applyVO;
     }
+
 
 }

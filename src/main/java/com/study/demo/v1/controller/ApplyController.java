@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -20,12 +21,21 @@ public class ApplyController {
 
     private final ApplyService applyService;
 
+    //리스트
     @GetMapping("/v1/apply")
     public String applyList(Model model) {
         ApplyDomain condition = applyService.read();
         model.addAttribute("list", condition.getApplyList());
 
         return "fLayout:/apply/applyList";
+    }
+
+    @GetMapping("/v1/apply/view/{attendId}")
+    public String applyView(@PathVariable("attendId")Long applyId, Model model) {
+        ApplyDomain applyView = applyService.read(applyId);
+        model.addAttribute("view", applyView);
+
+        return "fLayout:/apply/applyView";
     }
 
     @GetMapping("/v1/apply/create")
