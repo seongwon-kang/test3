@@ -78,4 +78,49 @@
                                 #{roomStock})
     </insert>
 
+    <select id="selectApplyList" resultType="com.study.demo.v1.dto.apply.ApplyListDto">
+        SELECT A.apply_id,
+               AD.apply_det_id,
+               A.apply_type, title, start_date, end_date, apply_num, purpose, create_date, modified_date,
+               AD.name, email, phone, feedback_type, comment, comfirm
+        FROM APPLY A
+        LEFT OUTER JOIN APPLY_DETAIL AD on A.apply_id = AD.apply_id
+        WHERE 1=1
+        <!--<![CDATA[ //todo 추후 날짜 받아오게 해서 init값 세팅해야함.
+            AND A.start_date>='2020-07-01'
+            AND A.end_date <'2020-07-31'
+        ]]>-->
+
+    </select>
+
+    <select id="selectApply" parameterType="Long" resultType="com.study.demo.v1.dto.apply.ApplyViewDto">
+        SELECT A.apply_id,
+               AD.apply_det_id,
+               A.apply_type, title, start_date, end_date, apply_num, purpose, create_date, modified_date,
+               AD.name, email, phone, feedback_type, comment, form_agree, comfirm
+        FROM APPLY A
+                 LEFT OUTER JOIN APPLY_DETAIL AD on A.apply_id = AD.apply_id
+        WHERE 1=1
+        AND A.apply_id =#{attendId}
+
+    </select>
+
+    <select id="selectApplyDetLocation" resultType="com.study.demo.v1.vo.apply.ApplyDetailLocationVO">
+        SELECT * FROM APPLY_DETAIL_LOCATION
+        WHERE 1=1
+        AND apply_det_id =#{applyDetId}
+    </select>
+    <select id="selectApplyDetMeal" resultType="com.study.demo.v1.vo.apply.ApplyDetailMealVO">
+        SELECT * FROM APPLY_DETAIL_MEAL
+        WHERE 1=1
+        AND apply_det_id =#{applyDetId}
+    </select>
+    <select id="selectApplyDetRoom" resultType="com.study.demo.v1.vo.apply.ApplyDetailRoomVO">
+        SELECT * FROM APPLY_DETAIL_ROOM
+        WHERE 1=1
+        AND apply_det_id =#{applyDetId}
+    </select>
+
+
+
 </mapper>

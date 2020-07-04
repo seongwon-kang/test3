@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class ApplyController {
 
     //문의 예약신청
     @PostMapping("/v1/apply/create")
-    public void applyCreateProc( CreateFormVO form) {
+    public void applyCreateProc(CreateFormVO form) {
         applyService.create(form);
     }
 }
