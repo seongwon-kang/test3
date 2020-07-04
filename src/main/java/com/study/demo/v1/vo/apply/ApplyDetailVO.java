@@ -12,4 +12,15 @@ public class ApplyDetailVO {
     private String feedbackType;
     private String comment;
     private String formAgree;
+
+    public ApplyDetailVO setDataWithForm(CreateFormVO form) {
+        this.setName(form.getName());
+        this.setEmail(form.getEmail());
+        this.setPhone(form.getPhone());
+        this.setFeedbackType(form.getFeedbackType());
+        this.setComment(form.getComment());
+        this.setFormAgree(form.getFormAgree());
+
+        return this;
+    }
 }

@@ -16,4 +16,14 @@ public class ApplyVO {
     private LocalDateTime createDate;
     private LocalDateTime modifiedDate;
 
+    public ApplyVO setDataWithForm(CreateFormVO form){
+        this.setApplyType(form.getApplyType());
+        this.setTitle(form.getTitle());
+        this.setStartDate(form.getStartDate());
+        this.setEndDate(form.getEndDate());
+        this.setApplyNum(form.getApplyNum());
+        this.setPurpose(form.getPurpose());
+
+        return this;
+    }
 }
