@@ -73,6 +73,7 @@
                                             room_type,
                                             room_stock)
                          VALUES(#{applyDetId},
+
                                 #{roomType},
                                 #{roomStock})
     </insert>
